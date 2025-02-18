@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상상부기 사육장 제어 시스템</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="./static/myChart.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header>
+      <h1>상상부기 사육장 제어 시스템</h1>
+      <!--헤더 (웹사이트 제목)-->
+    </header>
+    <main>
+      <div id="main-content">
+        <div id="left-panel">
+          <!--왼쪽 패널-->
+          <section id="environment">
+            <h2>환경 상태</h2>
+            <!--환경상태 보여주는 구역-->
+            <div class="info-row">
+              <!--온도 정보 -->
+              <p><strong>온도:</strong> <span id="temperature">°C</span></p>
+              <p class="warning">
+                <strong>온도 경고:</strong>
+                <span id="temperature-warning">정상</span>
+              </p>
+            </div>
+            <div class="info-row">
+              <!--습도 정보-->
+              <p><strong>습도:</strong> <span id="humidity">%</span></p>
+              <p class="warning">
+                <strong>습도 경고:</strong>
+                <span id="humidity-warning">정상</span>
+              </p>
+            </div>
+            <div class="info">
+              <!--조도 정보-->
+              <p><strong>조도:</strong> <span id="light-level">lx</span></p>
+              <p><strong>주야 구분:</strong> <span id="day-night"></span></p>
+            </div>
+            <div class="led-control">
+              <!--조도 제어-->
+              <p>LED 개수 조절:</p>
+              <button id="increase-led">LED +</button
+              ><!--흰 색 led 개수 증가-->
+              <button id="decrease-led">LED -</button
+              ><!--흰 색 led 개수 감소-->
+              <span id="led-count">0</span> 개
+            </div>
+          </section>
+          <section id="feeder">
+            <!--자동급식기 정보-->
+            <h2>자동 급식기</h2>
+            <p>
+              <strong>작동 상태:</strong> <span id="feeder-status">OFF</span>
+            </p>
+          </section>
+        </div>
+        <div id="right-panel">
+          <!--오른쪽 패널-->
+          <section id="entrance">
+            <!--출입문 상태-->
+            <h2>출입문 상태</h2>
+            <div class="info">
+              <p>
+                <strong>출입문 거리:</strong> <span id="door-distance">cm</span>
+              </p>
+              <p>
+                <strong>출입문 경고:</strong>
+                <span id="door-warning">정상</span>
+              </p>
+            </div>
+          </section>
+          <div id="right-content">
+            <!--오른쪽 아래 패널-->
+            <div id="door-photo">
+              <!--cctv 출력-->
+              <h2>출입문 CCTV</h2>
+              <img
+                id="door-image"
+                src="/static/placeholder.jpg"
+                alt="출입문 cctv"
+              />
+            </div>
+            <div id="door-chart">
+              <!--차트 출력-->
+              <h2>출입문 차트</h2>
+              <canvas id="chart" width="400" height="500"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!--제작자 정보 표시-->
+      <p>2191215 유상완 상상부기 사육장 제어 시스템</p>
+    </footer>
+    <script src="/static/mqtt.js"></script>
+    <!--웹페이지에 표시할 정보 가져오는 js-->
+  </body>
+</html>
