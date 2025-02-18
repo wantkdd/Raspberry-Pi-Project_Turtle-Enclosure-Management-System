@@ -1,0 +1,125 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /*글꼴 */
+  margin: 0; /*여백 제거*/
+  padding: 0; /*패딩 제거 */
+  background-color: #f0f8ff; /* 배경색 설정 */
+  color: #333; /* 기본 텍스트 색상 */
+  height: 100vh; /* 전체 높이 */
+  display: flex;
+  flex-direction: column; /* 상하 배치 */
+}
+
+header {
+  background-color: #4682b4; /* 헤더 배경색 */
+  color: white; /* 헤더 텍스트 색상 */
+  padding: 15px 20px; /* 내부 여백 */
+  text-align: center; /* 내부 여백 */
+}
+
+main {
+  flex: 1; /* 메인 콘텐츠를 화면에 꽉 채우기 */
+  display: flex; /* 플렉스 레이아웃 */
+  padding: 20px; /* 내부 여백 */
+  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+}
+.info-row {
+  display: flex; /* 플렉스 레이아웃 */
+  justify-content: space-between; /* 양쪽 정렬 */
+  align-items: center; /* 세로 가운데 정렬 */
+  margin-bottom: 10px; /* 아래 간격 */
+}
+
+.warning {
+  margin-left: auto; /* 오른쪽 정렬 */
+  text-align: right; /* 텍스트 오른쪽 정렬 */
+  color: rgb(10, 10, 10); /* 경고 텍스트 색상 */
+}
+#main-content {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+#left-panel {
+  flex: 3; /* 왼쪽 패널 크기 비율 */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#right-panel {
+  flex: 7; /* 오른쪽 패널 크기 비율 */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* 상하로 배치 */
+  gap: 20px; /* 섹션 간의 간격 */
+}
+
+#right-content {
+  display: flex;
+  gap: 20px; /* cctv와 차트 간격 */
+  flex-direction: row; /* 가로 정렬 */
+  align-items: stretch; /* 각 섹션 높이를 동일하게 맞춤 */
+}
+
+#door-photo,
+#door-chart {
+  flex: 1; /* 동일한 크기로 설정 */
+  display: flex;
+  flex-direction: column; /* 세로 정렬 */
+  align-items: center; /* 가로 가운데 정렬 */
+  justify-content: center; /* 세로 가운데 정렬 */
+  background: white;
+  border: 1px solid #ddd; /* 테두리 설정 */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 1 / 1; /* 1:1 비율 유지 */
+  overflow: hidden; /* 자식 요소가 영역을 넘어가지 않도록 */
+}
+
+#door-photo img {
+  width: 100%;
+  height: auto; /* 이미지 비율 유지 */
+  object-fit: contain; /* 이미지가 전체 영역에 맞게 */
+}
+
+#door-chart canvas {
+  width: 100%;
+  height: auto;
+}
+#broker-control,
+#environment-control,
+#entrance-control {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #2665e4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+footer {
+  text-align: center; /* 텍스트 가운데 정렬 */
+  padding: 10px; /* 내부 여백 */
+  background-color: #4682b4; /* 배경색 */
+  color: white; /* 텍스트 색상 */
+}
+#chart {
+  width: 100%;
+  height: auto;
+}
